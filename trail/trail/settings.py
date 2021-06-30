@@ -15,7 +15,7 @@ import os
 
 from .config import DbAuth, SiteConfig
 
-siteConfig = SiteConfig({"secret_key": "alalal"})
+siteConfig = SiteConfig({"settings": {"secret_key": "alalal"}})
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

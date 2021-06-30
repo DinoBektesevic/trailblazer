@@ -83,4 +83,6 @@ jobs:
           cd ..
       - name: Run tests
         run: |
-          python trail/manage.py test -v2 -b
+          cd trail
+          python manage.py test -v2 -b
+          cd ..
