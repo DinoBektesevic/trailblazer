@@ -58,8 +58,7 @@ jobs:
         {"os": "windows-latest", "python": "3.9", "env": "py3.9-test"},
         {"os": "ubuntu-latest",  "python": "3.9", "env": "py3.9-test"},
         {"os": "ubuntu-latest",  "python": "3.8", "env": "py3.8-test"},
-        {"os": "ubuntu-latest",  "python": "3.7", "env": "py3.7-test"},
-        {"os": "ubuntu-latest",  "python": "3.6", "env": "py3.6-test"}
+        {"os": "ubuntu-latest",  "python": "3.7", "env": "py3.7-test"}
         ]
         include:
           - toxargs: -v
@@ -79,7 +78,9 @@ jobs:
       - name: Install newest astro_metadata_translator
         run: |
           git clone https://github.com/lsst/astro_metadata_translator.git
-          python astro_metadata_translator/setup.py
+          cd astro_metadata_translator
+          python setup.py install
+          cd ..
       - name: Run tests
         run: |
           python trail/manage.py test -v2 -b
